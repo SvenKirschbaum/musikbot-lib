@@ -45,7 +45,7 @@ public class SongIDParser {
 
     public static String getSID(String spotifyUrl) {
         if (spotifyUrl != null && spotifyUrl.trim().length() > 0) {
-            String expression = "^(?:spotify:track:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/track\\/)([a-zA-Z0-9_]{22})(?:.*)$";
+            String expression = "^(?:spotify:track:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/(?:intl-[a-z]{2}\\/)?track\\/)([a-zA-Z0-9_]{22})(?:.*)$";
             CharSequence input = spotifyUrl;
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(input);
@@ -58,7 +58,7 @@ public class SongIDParser {
 
     public static String getSAID(String spotifyUrl) {
         if (spotifyUrl != null && spotifyUrl.trim().length() > 0) {
-            String expression = "^(?:spotify:album:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/album\\/)([a-zA-Z0-9]{22})(?:.*)$";
+            String expression = "^(?:spotify:album:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/(?:intl-[a-z]{2}\\/)?album\\/)([a-zA-Z0-9]{22})(?:.*)$";
             CharSequence input = spotifyUrl;
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(input);
@@ -71,7 +71,7 @@ public class SongIDParser {
 
     public static String getSPID(String spotifyUrl) {
         if (spotifyUrl != null && spotifyUrl.trim().length() > 0) {
-            String expression = "^(?:spotify:playlist:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/playlist\\/)([a-zA-Z0-9]{22})(?:.*)$";
+            String expression = "^(?:spotify:playlist:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/(?:intl-[a-z]{2}\\/)?playlist\\/)([a-zA-Z0-9]{22})(?:.*)$";
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(spotifyUrl);
             if (matcher.matches()) {
@@ -83,7 +83,7 @@ public class SongIDParser {
 
     public static String getSARID(String spotifyUrl) {
         if (spotifyUrl != null && spotifyUrl.trim().length() > 0) {
-            String expression = "^(?:spotify:artist:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/artist\\/)([a-zA-Z0-9]{22})(?:.*)$";
+            String expression = "^(?:spotify:artist:|(?:http|https)\\:\\/\\/(?:play|open)\\.spotify\\.com\\/(?:intl-[a-z]{2}\\/)?artist\\/)([a-zA-Z0-9]{22})(?:.*)$";
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(spotifyUrl);
             if (matcher.matches()) {
