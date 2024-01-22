@@ -1,7 +1,7 @@
-package de.elite12.musikbot.shared.clientDTO;
+package de.elite12.musikbot.shared;
 
 public interface ClientDTO {
-    public default String getType() {
+    default String getDTOType() {
         return this.getClass().getSimpleName();
     }
 }
