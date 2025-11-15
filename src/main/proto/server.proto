@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import "bot.proto";
+
+option java_multiple_files = true;
+option java_package = "de.elite12.musikbot.proto";
+
+
+enum SongType {
+  SONG_TYPE_UNSPECIFIED = 0;
+  YOUTUBE = 1;
+  SPOTIFY = 2;
+}
+
+message Song {
+  string id = 1;
+  string title = 2;
+  SongType type = 3;
+}
+
+message PauseCommand {}
+message StopCommand {}
+message ShutdownCommand {}
+
+message VolumeCommand {
+  uint32 volume = 1;
+}
+
+message PlayCommand {
+  Song song = 1;
+}
+
+message BotCommand {
+  map<string, string> metadata = 1;
+  oneof command {
+    PauseCommand pause = 2;
+    StopCommand stop = 3;
+    ShutdownCommand shutdown = 4;
+    VolumeCommand volume = 5;
+    PlayCommand play = 6;
+  };
+}
+
+service BotGateway {
+  rpc Connect(stream BotEvent) returns (stream BotCommand);
+}
